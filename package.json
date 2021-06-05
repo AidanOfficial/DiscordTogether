@@ -13,7 +13,8 @@
     "ascii-table": "0.0.9",
     "discord-buttons": "^3.1.1",
     "discord-together": "^1.1.14",
-    "discord.js": "^12.5.1"
+    "discord.js": "^12.5.1",
+    "moment": "^2.29.1"
   },
   "devDependencies": {
     "ascii-table": "0.0.9",

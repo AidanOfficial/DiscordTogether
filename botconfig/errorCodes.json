@@ -1,0 +1,7 @@
+{
+    "adminErrors": {
+        "100": "You do not own the specified permissions to run this command. Contact a bot administrator if you feel that this is incorrect.",
+        "101": "You have not provided a proper GuildID.",
+        "102": "GuildID provided does not exist."
+    }
+}

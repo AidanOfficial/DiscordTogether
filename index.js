@@ -2,6 +2,8 @@
 const Discord = require("discord.js"); //this is the official discord.js wrapper for the Discord Api, which we use!
 const colors = require("colors"); //this Package is used, to change the colors of our Console! (optional and doesnt effect performance)
 const fs = require("fs"); //this package is for reading files and getting their inputs
+const ee = require("././botconfig/embed.json");
+const moment = require("moment");
 
 //Creating the Discord.js Client for This Bot with some default settings ;) and with partials, so you can fetch OLD messages
 const client = new Discord.Client({
@@ -33,6 +35,15 @@ client.on('clickButton', async (button) => {
   if (button.id == 'ID_HERE') {
     button.reply.send('REPLY');
   }
+});
+
+client.on('guildCreate', (guild) => {
+  const guildEmbed = new Discord.MessageEmbed()
+    .setTitle('✅ SUCCESS | Guild Joined')
+    .setColor(ee.color)
+    .setFooter(ee.footertext, ee.footericon)
+    .setDescription(`**Guild Name:** \`${guild.name}\` \n**Guild ID:** \`${guild.id}\` \n**Guild Owner:** \`${guild.ownerID}\` \n**Guild Member Count:** \`${guild.memberCount}\` \n**Guild Creation Date:** \`${moment(guild.createdAt).format('MMM DD, YYYY')}\``)
+    client.channels.cache.get('850513779409551404').send(guildEmbed);
 });
 
 //login into the bot
