@@ -13,6 +13,7 @@ const client = new Discord.Client({
   disableEveryone: true,
   partials: ['MESSAGE', 'CHANNEL', 'REACTION']
 });
+require('discord-buttons')(client); // Starting the discord-buttons class
 const { DiscordTogether } = require('discord-together');
 
 client.discordTogether = new DiscordTogether(client);
@@ -27,6 +28,13 @@ client.cooldowns = new Discord.Collection(); //an collection for cooldown comman
 ["command", "events"].forEach(handler => {
     require(`./handlers/${handler}`)(client);
 });
+
+client.on('clickButton', async (button) => {
+  if (button.id == 'ID_HERE') {
+    button.reply.send('REPLY');
+  }
+});
+
 //login into the bot
 client.login(require("./botconfig/config.json").token);
 
