@@ -1,0 +1,21 @@
+{
+  "name": "discordtogether",
+  "version": "0.0.1",
+  "description": "Use Discord activities with your friends!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "AidanOfficial#0001",
+  "license": "ISC",
+  "dependencies": {
+    "ascii-table": "0.0.9",
+    "discord-together": "^1.1.14",
+    "discord.js": "^12.5.1"
+  },
+  "devDependencies": {
+    "ascii-table": "0.0.9",
+    "colors": "^1.4.0"
+  }
+}
