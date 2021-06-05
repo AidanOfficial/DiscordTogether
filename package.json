@@ -1,6 +1,6 @@
 {
   "name": "discordtogether",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Use Discord activities with your friends!",
   "main": "index.js",
   "scripts": {
