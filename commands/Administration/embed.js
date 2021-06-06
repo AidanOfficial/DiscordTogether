@@ -27,7 +27,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(ee.wrongcolor)
           .setFooter(ee.footertext, ee.footericon)
-          .setTitle(`❌ ERROR | You didn't provided a Title, nor a Description`)
+          .setTitle(`❌ ERROR | You didn't provide a Title, nor a Description`)
           .setDescription(`Usage: \`${prefix}${this.usage}\``)
         );
       let userargs = args.join(" ").split("++");

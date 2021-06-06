@@ -29,7 +29,7 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
           .setColor(ee.wrongcolor)
           .setFooter(ee.footertext, ee.footericon)
-          .setTitle(`❌ ERROR | You didn't provided a Text`)
+          .setTitle(`❌ ERROR | You didn't provide a Text`)
           .setDescription(`Usage: \`${prefix}${this.usage}\``)
         );
       message.channel.send(text);
