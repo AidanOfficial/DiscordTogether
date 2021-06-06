@@ -1,6 +1,6 @@
 {
   "name": "discordtogether",
-  "version": "0.0.5",
+  "version": "0.0.8",
   "description": "Use Discord activities with your friends in voice channels.",
   "main": "index.js",
   "scripts": {
