@@ -1,6 +1,7 @@
 const { MessageEmbed } = require("discord.js");
 const config = require("../../botconfig/config.json");
 const ee = require("../../botconfig/embed.json");
+const errorCodes = require("../../botconfig/errorCodes.json");
 module.exports = {
     name: "ping",
     category: "Information",
@@ -26,8 +27,8 @@ module.exports = {
         return message.channel.send(new MessageEmbed()
             .setColor(ee.wrongcolor)
             .setFooter(ee.footertext, ee.footericon)
-            .setTitle(`❌ ERROR | An error occurred`)
-            .setDescription(`\`\`\`${e.stack}\`\`\``)
+            .setTitle(`❌ ERROR: 204 | An error occurred`)
+            .setDescription(`${errorCodes.cmdErrors[204]} \n\`\`\`${e.stack}\`\`\``)
         );
     }
   }
