@@ -9,7 +9,7 @@ const errorCodes = require("../../botconfig/errorCodes.json");
 module.exports = {
   name: "say",
   category: "Administration",
-  aliases: [""],
+  aliases: ["repeat"],
   cooldown: 2,
   usage: "say <TEXT>",
   description: "Resends your Text",
