@@ -16,6 +16,14 @@ module.exports = {
   description: "Use DiscordTogether administration commands. Restricted to Bot Admins+.",
   run: async (client, message, args, user, text, prefix) => {
     try {
+       function log(choice, actionTaker, secondaryOption) {
+        const logEmbed = new MessageEmbed()
+          .setColor(ee.color)
+          .setFooter(ee.footertext, ee.footericon)
+          .setTitle(`⚠️ ACTION | ${choice}`)
+          .setDescription(`${actionTaker} made the action: \`${choice}\` with secondary option \`${secondaryOption}\`.`)
+        client.channels.cache.get('850513779409551401').send(logEmbed);
+      }
       if (!staff.allStaff.includes(message.author.id)) {
         return message.channel.send(new MessageEmbed()
           .setColor(ee.wrongcolor)
@@ -37,13 +45,14 @@ module.exports = {
         );
       }
 
-      if (choice.toLowerCase() == 'codelist' || choice.toLowerCase() == 'list' || choice.toLowerCase() == 'actions') { // Code List
+      if (choice.toLowerCase() == 'codelist' || choice.toLowerCase() == 'list' || choice.toLowerCase() == 'actions' || choice.toLowerCase() == '0') { // Code List
         const choiceListEmbed = new MessageEmbed()
           .setColor(ee.color)
-          .setFooter(ee.footertext, ee.footericon)
+          .setFooter(ee.footertext + " | ⚠️ All bot actions are logged.", ee.footericon)
           .setTitle(`ℹ | DiscordTogether | Bot Management Code List`)
-          .setDescription(`\`1\` **| Leave Guild | Args: [1] GuildID**`)
+          .setDescription(`\`0\` **| Show Choices | Args: 0** \n\`1\` **| Leave Guild | Args: [1] GuildID**`)
         message.member.send(choiceListEmbed);
+        log('Codelist', `<@${message.author.id}>`, secondaryOption);
       }
 
       if (choice.toLowerCase() == '1' || choice.toLowerCase() == 'leaveguild') { // Guild Leave
@@ -72,7 +81,6 @@ module.exports = {
           .setTitle(`✅ SUCCESS | Guild Left`)
           .setDescription(`The provided guild has been left.`)
         )
-
       }
     } catch (e) {
       console.log(String(e.stack).bgRed)

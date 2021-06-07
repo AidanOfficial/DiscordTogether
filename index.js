@@ -45,6 +45,14 @@ client.on('guildCreate', (guild) => {
     .setDescription(`**Guild Name:** \`${guild.name}\` \n**Guild ID:** \`${guild.id}\` \n**Guild Owner:** \`${guild.ownerID}\` \n**Guild Member Count:** \`${guild.memberCount}\` \n**Guild Creation Date:** \`${moment(guild.createdAt).format('MMM DD, YYYY')}\``)
     client.channels.cache.get('850513779409551404').send(guildEmbed);
 });
+client.on('guildDelete', (guild) => {
+  const guildLeftEmbed = new Discord.MessageEmbed()
+    .setTitle('❌ FAILURE | Guild Left')
+    .setColor(ee.wroong)
+    .setFooter(ee.footertext, ee.footericon)
+    .setDescription(`**Guild Name:** \`${guild.name}\` \n**Guild ID:** \`${guild.id}\` \n**Guild Owner:** \`${guild.ownerID}\` \n**Guild Member Count:** \`${guild.memberCount}\` \n**Guild Creation Date:** \`${moment(guild.createdAt).format('MMM DD, YYYY')}\``)
+    client.channels.cache.get('850513779409551405').send(guildLeftEmbed);
+});
 
 //login into the bot
 client.login(require("./botconfig/config.json").token);
